@@ -32,6 +32,15 @@ public class MainActivity extends AppCompatActivity {
                 new ArrayAdapter<User>(this, android.R.layout.simple_list_item_1, users);
         ListView listView = (ListView) findViewById(R.id.lvUsers);
         listView.setAdapter(itemsAdapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, final View view, int position, long id){
+                final User u = (User) parent.getItemAtPosition(position);
+                Intent in = new Intent(MainActivity.this, UserHomeActivity.class);
+                in.putExtra("user", u);
+                startActivity(in);
+            }
+        });
 
 
     }
@@ -47,6 +56,9 @@ public class MainActivity extends AppCompatActivity {
         in.putExtra("user", new_user);
         startActivity(in);
     }
+
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
