@@ -19,9 +19,11 @@ public class UserHomeActivity extends AppCompatActivity {
 
         u = (User) intent.getParcelableExtra("user");
 
-        TextView tvText = new TextView(this);
-        tvText = (TextView) findViewById(R.id.textView3);
-        tvText.setText(u.getName());
+        TextView tvName = (TextView) findViewById(R.id.txtName);
+        tvName.setText(u.getName());
+
+        TextView tvEmail = (TextView) findViewById(R.id.txtEmail);
+        tvEmail.setText(u.getEmail());
 
     }
 

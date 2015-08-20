@@ -20,14 +20,25 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ArrayList<String> userNames = new ArrayList<String>();
-        userNames.add("Andy");
-        userNames.add("Bobby");
-        userNames.add("Charlie");
-        ArrayAdapter<String> itemsAdapter =
-                new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, userNames);
+        ArrayList<User> users = new ArrayList<User>();
+
+        users.add(new User("Andy","andy@gmail.com"));
+        users.add(new User("Bobby","bobbie@gmail.com"));
+        users.add(new User("Charlie","charlie@gmail.com"));
+
+        ArrayAdapter<User> itemsAdapter =
+                new ArrayAdapter<User>(this, android.R.layout.simple_list_item_1, users);
         ListView listView = (ListView) findViewById(R.id.lvUsers);
         listView.setAdapter(itemsAdapter);
+
+        /*ArrayList<String> userNames = new ArrayList<String>();
+        userNames.add("Andy");
+        userNames.add("Bobby");
+        userNames.add("Charlie");*/
+       /* ArrayAdapter<String> itemsAdapter =
+                new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, userNames);
+        ListView listView = (ListView) findViewById(R.id.lvUsers);
+        listView.setAdapter(itemsAdapter);*/
     }
 
     public void newUser(View view) {

@@ -11,14 +11,23 @@ public class User implements Parcelable {
     private String name;
     private String email;
 
-    public String getName() {
-        return name;
-    }
-
     public User(String name, String email) {
         this.id = 1;
         this.name = name;
         this.email = email;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    @Override
+    public String toString() {
+        return this.name;
     }
 
     @Override
