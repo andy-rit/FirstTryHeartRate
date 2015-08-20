@@ -15,12 +15,14 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+    ArrayList<User> users;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ArrayList<User> users = new ArrayList<User>();
+        users = new ArrayList<User>();
 
         users.add(new User("Andy","andy@gmail.com"));
         users.add(new User("Bobby","bobbie@gmail.com"));
@@ -31,14 +33,7 @@ public class MainActivity extends AppCompatActivity {
         ListView listView = (ListView) findViewById(R.id.lvUsers);
         listView.setAdapter(itemsAdapter);
 
-        /*ArrayList<String> userNames = new ArrayList<String>();
-        userNames.add("Andy");
-        userNames.add("Bobby");
-        userNames.add("Charlie");*/
-       /* ArrayAdapter<String> itemsAdapter =
-                new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, userNames);
-        ListView listView = (ListView) findViewById(R.id.lvUsers);
-        listView.setAdapter(itemsAdapter);*/
+
     }
 
     public void newUser(View view) {
@@ -46,9 +41,10 @@ public class MainActivity extends AppCompatActivity {
         EditText etEmail = (EditText)findViewById(R.id.editText2);
 
         User new_user = new User(etName.getText().toString(),etEmail.getText().toString());
+        users.add(new_user);
 
         Intent in = new Intent(this, UserHomeActivity.class);
-        in.putExtra("user",new_user);
+        in.putExtra("user", new_user);
         startActivity(in);
     }
 
@@ -57,6 +53,15 @@ public class MainActivity extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        ArrayAdapter<User> itemsAdapter =
+                new ArrayAdapter<User>(this, android.R.layout.simple_list_item_1, users);
+        ListView listView = (ListView) findViewById(R.id.lvUsers);
+        listView.setAdapter(itemsAdapter);
     }
 
     @Override
