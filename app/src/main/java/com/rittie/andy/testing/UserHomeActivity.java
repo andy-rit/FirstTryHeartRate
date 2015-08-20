@@ -1,5 +1,5 @@
 package com.rittie.andy.testing;
-
+//Andy Rittie
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

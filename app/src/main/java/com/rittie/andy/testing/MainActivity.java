@@ -14,7 +14,7 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-
+//Andy Rittie
     ArrayList<User> users;
 
     @Override
