@@ -3,6 +3,10 @@ package com.rittie.andy.testing;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Andy Rittie on 17/08/2015.
  */
@@ -10,11 +14,21 @@ public class User implements Parcelable {
     private long id;
     private String name;
     private String email;
+    private List<Double> restingHR;
 
     public User(String name, String email) {
         this.id = 1;
         this.name = name;
         this.email = email;
+        this.restingHR = new ArrayList<Double>();
+    }
+
+    public void setRestingHR(double restingHR) {
+        this.restingHR.add(restingHR);
+    }
+
+    public double calcAvg() {
+
     }
 
     public String getName() {

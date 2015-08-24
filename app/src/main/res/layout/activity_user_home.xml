@@ -23,7 +23,8 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Name:"
                 android:id="@+id/lblName"
-                android:layout_column="0" />
+                android:layout_column="0"
+                android:layout_marginTop="15dp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -31,7 +32,9 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/txtName"
                 android:layout_column="1"
-                android:layout_marginLeft="20dp" />
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="15dp"
+                android:textColor="#ff4049" />
 
         </TableRow>
 
@@ -44,14 +47,101 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Email:"
-                android:id="@+id/lblEmail" />
+                android:id="@+id/lblEmail"
+                android:layout_marginTop="15dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/txtEmail"
-                android:layout_marginLeft="20dp" />
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="15dp"
+                android:textColor="#ff4049" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Connection:"
+                android:id="@+id/textView5"
+                android:layout_marginTop="15dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Not connected"
+                android:id="@+id/txtConn"
+                android:layout_marginTop="15dp"
+                android:textColor="#ff4049" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Connect"
+                android:id="@+id/btnConnect"
+                android:onClick="connectBand"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Avg Heart Rate:"
+                android:id="@+id/textView3"
+                android:layout_column="0"
+                android:layout_marginTop="20dp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Not calculated"
+                android:id="@+id/textView4"
+                android:layout_column="0"
+                android:layout_marginTop="15dp"
+                android:textColor="#ff4049" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Calculate"
+                android:id="@+id/btnResting"
+                android:layout_column="0"
+                android:layout_marginTop="15dp"
+                android:onClick="calcHR"/>
         </TableRow>
     </TableLayout>
+
 </RelativeLayout>

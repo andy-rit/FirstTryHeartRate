@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.view.View;
 
 public class UserHomeActivity extends AppCompatActivity {
 
@@ -25,6 +26,12 @@ public class UserHomeActivity extends AppCompatActivity {
         TextView tvEmail = (TextView) findViewById(R.id.txtEmail);
         tvEmail.setText(u.getEmail());
 
+    }
+
+    public void connectBand(View view) {
+        Band band = new Band();
+        TextView tvConn = (TextView) findViewById(R.id.txtConn);
+        tvConn.setText(band.getTypeBand());
     }
 
     @Override
