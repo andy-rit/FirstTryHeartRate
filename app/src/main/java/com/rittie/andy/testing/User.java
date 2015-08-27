@@ -14,21 +14,31 @@ public class User implements Parcelable {
     private long id;
     private String name;
     private String email;
-    private List<Double> restingHR;
+    //private List<Double> restingHR;
 
     public User(String name, String email) {
         this.id = 1;
         this.name = name;
         this.email = email;
-        this.restingHR = new ArrayList<Double>();
+        //this.restingHR = new ArrayList<Double>();
+    }
+
+   /* public List<Double> getRestingHR() {
+        return restingHR;
     }
 
     public void setRestingHR(double restingHR) {
         this.restingHR.add(restingHR);
     }
+*/
+    public double calcAvg(double[] heartRates) {
+        double sum = 0;
+        for (int i = 0; i < heartRates.length; i++)
+            sum = sum + heartRates[i];
 
-    public double calcAvg() {
-
+        //calculate average value
+        double average = sum / heartRates.length;
+        return average;
     }
 
     public String getName() {
@@ -54,6 +64,7 @@ public class User implements Parcelable {
         pc.writeLong(id);
         pc.writeString(name);
         pc.writeString(email);
+        //pc.writeList(restingHR);
     }
 
     public static final Parcelable.Creator<User> CREATOR = new Parcelable.Creator<User>() {
@@ -69,5 +80,6 @@ public class User implements Parcelable {
         id = pc.readLong();
         name = pc.readString();
         email = pc.readString();
+        //restingHR = (List<Double>) pc.readList(restingHR,Double.class);
     }
 }

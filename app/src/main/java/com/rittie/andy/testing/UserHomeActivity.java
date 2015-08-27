@@ -1,6 +1,7 @@
 package com.rittie.andy.testing;
 //Andy Rittie
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -8,7 +9,14 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.view.View;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class UserHomeActivity extends AppCompatActivity {
+
+    private Band band;
+    User u;
+    double[] restingHR;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,7 +24,8 @@ public class UserHomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user_home);
 
         Intent intent = getIntent();
-        User u;
+
+
 
         u = (User) intent.getParcelableExtra("user");
 
@@ -29,10 +38,35 @@ public class UserHomeActivity extends AppCompatActivity {
     }
 
     public void connectBand(View view) {
-        Band band = new Band();
+        band = new Band();
         TextView tvConn = (TextView) findViewById(R.id.txtConn);
         tvConn.setText(band.getTypeBand());
     }
+
+    public void calcHR(View view) {
+
+        double x;
+        restingHR = new double[30];
+        TextView tvAvgHR = (TextView) findViewById(R.id.txtAvgHR);
+
+
+
+            //u.setRestingHR(x);
+        for(int i=0; i<30; i++) {
+                    x = band.getAvgHeartRate();
+                    restingHR[i] = x;
+
+
+
+        }
+        tvAvgHR.setText(String.valueOf(u.calcAvg(restingHR)));
+
+    }
+
+
+
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

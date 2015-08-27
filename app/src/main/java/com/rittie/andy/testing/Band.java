@@ -18,7 +18,7 @@ public class Band {
         this.typeBand = "Dummy BAND";
     }
 
-    public double getHeartRate() {
+    public double getAvgHeartRate() {
         Random rand = new Random();
         this.heartRate = 85 + (5*rand.nextDouble());
         return heartRate;
