@@ -123,7 +123,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Not calculated"
-                android:id="@+id/textView4"
+                android:id="@+id/txtAvgHR"
                 android:layout_column="0"
                 android:layout_marginTop="15dp"
                 android:textColor="#ff4049" />
@@ -142,13 +142,6 @@
                 android:layout_marginTop="15dp"
                 android:onClick="calcHR"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Large Text"
-                android:id="@+id/txtAvgHR"
-                android:layout_column="1" />
         </TableRow>
     </TableLayout>
 

@@ -17,6 +17,8 @@ public class UserHomeActivity extends AppCompatActivity {
     private Band band;
     User u;
     double[] restingHR;
+    //private int mInterval = 1000; // 1 seconds by default, can be changed later
+    //private Handler mHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,8 +27,6 @@ public class UserHomeActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-
-
         u = (User) intent.getParcelableExtra("user");
 
         TextView tvName = (TextView) findViewById(R.id.txtName);
@@ -34,6 +34,8 @@ public class UserHomeActivity extends AppCompatActivity {
 
         TextView tvEmail = (TextView) findViewById(R.id.txtEmail);
         tvEmail.setText(u.getEmail());
+        //mHandler = new Handler();
+
 
     }
 
@@ -46,23 +48,39 @@ public class UserHomeActivity extends AppCompatActivity {
     public void calcHR(View view) {
 
         double x;
-        restingHR = new double[30];
+        restingHR = new double[300];
         TextView tvAvgHR = (TextView) findViewById(R.id.txtAvgHR);
-
-
+        TextView tvHR = (TextView) findViewById(R.id.txtHR);
 
             //u.setRestingHR(x);
-        for(int i=0; i<30; i++) {
+        for(int i=0; i<300; i++) {
                     x = band.getAvgHeartRate();
                     restingHR[i] = x;
-
-
-
+       //            this.startRepeatingTask();
+                    tvHR.setText(String.valueOf(x));
         }
         tvAvgHR.setText(String.valueOf(u.calcAvg(restingHR)));
 
+        //TODO: Add code to write Array of 300 Values to SQL DB
+
+    }
+/*
+    Runnable mStatusChecker = new Runnable() {
+        @Override
+        public void run() {
+            //updateStatus(); //this function can change value of mInterval.
+            mHandler.postDelayed(mStatusChecker, mInterval);
+        }
+
+    };
+
+    void startRepeatingTask() {
+        mStatusChecker.run();
     }
 
+    void stopRepeatingTask() {
+        mHandler.removeCallbacks(mStatusChecker);
+    }*/
 
 
 

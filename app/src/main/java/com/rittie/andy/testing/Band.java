@@ -1,5 +1,7 @@
 package com.rittie.andy.testing;
 
+import android.os.Handler;
+
 import java.util.Random;
 
 /**
@@ -19,9 +21,11 @@ public class Band {
     }
 
     public double getAvgHeartRate() {
-        Random rand = new Random();
-        this.heartRate = 85 + (5*rand.nextDouble());
-        return heartRate;
+
+                Random rand = new Random();
+                this.heartRate = 85 + (5*rand.nextDouble());
+                return heartRate;
+
     }
 
     public boolean connect() {
