@@ -48,20 +48,21 @@ public class UserHomeActivity extends AppCompatActivity {
     public void calcHR(View view) {
 
         double x;
-        restingHR = new double[300];
+        /*restingHR = new double[300];
         TextView tvAvgHR = (TextView) findViewById(R.id.txtAvgHR);
-        TextView tvHR = (TextView) findViewById(R.id.txtHR);
+        //TextView tvHR = (TextView) findViewById(R.id.txtHR);
 
             //u.setRestingHR(x);
         for(int i=0; i<300; i++) {
                     x = band.getAvgHeartRate();
                     restingHR[i] = x;
        //            this.startRepeatingTask();
-                    tvHR.setText(String.valueOf(x));
+                   // tvHR.setText(String.valueOf(x));
         }
-        tvAvgHR.setText(String.valueOf(u.calcAvg(restingHR)));
-
-        //TODO: Add code to write Array of 300 Values to SQL DB
+        tvAvgHR.setText(String.valueOf(u.calcAvg(restingHR)));*/
+        Intent in = new Intent(this, RestingHeartRate.class);
+        in.putExtra("user", u);
+        startActivity(in);
 
     }
 /*
