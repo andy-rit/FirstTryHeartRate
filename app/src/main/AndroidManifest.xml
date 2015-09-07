@@ -29,6 +29,14 @@
             android:name=".RestingHeartRate"
             android:label="@string/title_activity_resting_heart_rate" >
         </activity>
+        <activity
+            android:name=".MonitorHeartRateActivity"
+            android:label="@string/title_activity_monitor_heart_rate" >
+        </activity>
+        <activity
+            android:name=".HeartRateMonitor"
+            android:label="@string/title_activity_heart_rate_monitor" >
+        </activity>
     </application>
 
 </manifest>

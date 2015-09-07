@@ -17,8 +17,6 @@ public class UserHomeActivity extends AppCompatActivity {
     private Band band;
     User u;
     double[] restingHR;
-    //private int mInterval = 1000; // 1 seconds by default, can be changed later
-    //private Handler mHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +32,10 @@ public class UserHomeActivity extends AppCompatActivity {
 
         TextView tvEmail = (TextView) findViewById(R.id.txtEmail);
         tvEmail.setText(u.getEmail());
+
+        TextView tvAvg = (TextView) findViewById(R.id.txtAvgHR);
+        tvAvg.setText(String.format("%.2f",u.getAvgHR()));
+
         //mHandler = new Handler();
 
 
@@ -47,45 +49,19 @@ public class UserHomeActivity extends AppCompatActivity {
 
     public void calcHR(View view) {
 
-        double x;
-        /*restingHR = new double[300];
-        TextView tvAvgHR = (TextView) findViewById(R.id.txtAvgHR);
-        //TextView tvHR = (TextView) findViewById(R.id.txtHR);
-
-            //u.setRestingHR(x);
-        for(int i=0; i<300; i++) {
-                    x = band.getAvgHeartRate();
-                    restingHR[i] = x;
-       //            this.startRepeatingTask();
-                   // tvHR.setText(String.valueOf(x));
-        }
-        tvAvgHR.setText(String.valueOf(u.calcAvg(restingHR)));*/
         Intent in = new Intent(this, RestingHeartRate.class);
         in.putExtra("user", u);
         startActivity(in);
 
     }
-/*
-    Runnable mStatusChecker = new Runnable() {
-        @Override
-        public void run() {
-            //updateStatus(); //this function can change value of mInterval.
-            mHandler.postDelayed(mStatusChecker, mInterval);
-        }
 
-    };
+    public void monitorHR(View view) {
 
-    void startRepeatingTask() {
-        mStatusChecker.run();
+        Intent in = new Intent(this,HeartRateMonitor.class);
+        in.putExtra("user", u);
+        startActivity(in);
+
     }
-
-    void stopRepeatingTask() {
-        mHandler.removeCallbacks(mStatusChecker);
-    }*/
-
-
-
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

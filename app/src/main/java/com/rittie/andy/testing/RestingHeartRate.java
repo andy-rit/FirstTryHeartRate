@@ -42,7 +42,7 @@ public class RestingHeartRate extends AppCompatActivity {
         stopButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                hrValue.setText("Average: " + String.valueOf(u.calcAvg(restingHR)));
+                hrValue.setText( String.format( "Average: %.2f", u.calcAvg(restingHR) ) );
                 customHandler.removeCallbacks(updateScreen);
             }
         });
@@ -54,7 +54,7 @@ public class RestingHeartRate extends AppCompatActivity {
             hrValue.setText(String.valueOf(restingHR[i]));
             i++;
             if (i == restingHR.length) {
-                hrValue.setText("Average: " + String.valueOf(u.calcAvg(restingHR)));
+                hrValue.setText(String.format( "Average: %.2f",u.calcAvg(restingHR)));
                 customHandler.removeCallbacks(this);
             }
             else{
@@ -62,6 +62,13 @@ public class RestingHeartRate extends AppCompatActivity {
             }
         }
     };
+
+    @Override
+    public void onBackPressed(){
+        Intent in = new Intent(this, UserHomeActivity.class);
+        in.putExtra("user", u);
+        startActivity(in);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
